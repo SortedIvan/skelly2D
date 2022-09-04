@@ -1,26 +1,32 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
+using SkeletonGame.Assets;
 using SkeletonGame.Exceptions;
+using SkeletonGame.Factories;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SkeletonGame.Repository
+namespace SkeletonGame.Repositories
 {
     public class TextureRepository
     {
         private Dictionary<string, Texture2D> loadedTextures;
-        public TextureRepository()
+        private TextureFactory textureFactory;
+        private Asset assetManager;
+        public TextureRepository(TextureFactory textureFactory, Asset assetManager)
         {
             this.loadedTextures = new Dictionary<string, Texture2D>();
+            this.textureFactory = textureFactory;
+            this.assetManager = assetManager;
         }
 
-        public void SaveLoadedTexture(string textureName, Texture2D texture)
+        public void LoadAndSaveTexture(string textureName, Texture2D texture)
         {
             if (textureName.Equals(null) || texture.Equals(null))
             {
-                throw new TextureException($"{textureName} or {texture.ToString()} are not valid. Please provide valid values.");
+                throw new TextureException($"{textureName} is not valid. Please provide valid values.");
             }
-            this.loadedTextures.Add(textureName, texture);
+            this.loadedTextures.Add(textureName, assetManager.LoadTexture(textureName));
         }
 
         public Texture2D GetTexture(string textureName)
