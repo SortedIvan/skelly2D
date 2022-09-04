@@ -20,9 +20,9 @@ namespace SkeletonGame.Repositories
             this.assetManager = assetManager;
         }
 
-        public void LoadAndSaveTexture(string textureName, Texture2D texture)
+        public void LoadAndSaveTexture(string textureName)
         {
-            if (textureName.Equals(null) || texture.Equals(null))
+            if (textureName.Equals(null))
             {
                 throw new TextureException($"{textureName} is not valid. Please provide valid values.");
             }

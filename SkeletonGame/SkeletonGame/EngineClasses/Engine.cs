@@ -10,15 +10,15 @@ namespace SkeletonGame.EngineClasses
     {
         private Asset assetManager;
         private Repository repository;
-        private TextureRepository textureRepository;
         private TextureFactory textureFactory;
+        private TextureLoader textureLoader;
         public Engine(ContentManager content)
         {
             //Asset manager is one of the most important manager classes
             this.assetManager = new Asset(content);
             this.textureFactory = new TextureFactory();
-            this.textureRepository = new TextureRepository(textureFactory, assetManager);
             this.repository = new Repository(textureFactory, assetManager);
+            this.textureLoader = new TextureLoader(this.repository);
         }
 
         public Asset AssetManager()
@@ -35,6 +35,11 @@ namespace SkeletonGame.EngineClasses
         public Repository Repository()
         {
             return this.repository;
+        }
+
+        public TextureLoader TextureLoader()
+        {
+            return this.textureLoader;
         }
     }
 }
