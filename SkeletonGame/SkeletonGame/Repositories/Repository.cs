@@ -8,14 +8,12 @@ namespace SkeletonGame.Repositories
 {
     public class Repository
     {
-        private TextureFactory textureFactory;
         private Asset assetManager;
         private TextureRepository textureRepository;
-        public Repository(TextureFactory textureFactory, Asset assetManager)
+        public Repository(Asset assetManager)
         {
-            this.textureFactory = textureFactory;
             this.assetManager = assetManager;
-            this.textureRepository = new TextureRepository(this.textureFactory,this.assetManager);
+            this.textureRepository = new TextureRepository(this.assetManager);
         }
 
         public TextureRepository GetTextureRepository()

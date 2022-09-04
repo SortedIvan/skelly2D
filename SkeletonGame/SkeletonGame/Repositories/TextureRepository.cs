@@ -10,13 +10,12 @@ namespace SkeletonGame.Repositories
 {
     public class TextureRepository
     {
+        // Loaded textures holding all of the assets within the game
         private Dictionary<string, Texture2D> loadedTextures;
-        private TextureFactory textureFactory;
         private Asset assetManager;
-        public TextureRepository(TextureFactory textureFactory, Asset assetManager)
+        public TextureRepository(Asset assetManager)
         {
             this.loadedTextures = new Dictionary<string, Texture2D>();
-            this.textureFactory = textureFactory;
             this.assetManager = assetManager;
         }
 
