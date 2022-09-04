@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "S6wOEKl+7hGet8zip4g9Vfk83VvYdUEZqpKCkPl5VqoE6723U7ZyexIoB2N1a5JrVLRy2jhzQoN/fULxTtlRMg==",
+  "success": true,
+  "projectFilePath": "C:\\Skeleton-Game\\skeleton-game\\Skeleton-game\\Skeleton-game\\Skeleton-game.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ivano\\.nuget\\packages\\monogame.content.builder.task\\3.8.0.1641\\monogame.content.builder.task.3.8.0.1641.nupkg.sha512",
+    "C:\\Users\\ivano\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.0.1641\\monogame.framework.desktopgl.3.8.0.1641.nupkg.sha512"
+  ],
+  "logs": []
+}
