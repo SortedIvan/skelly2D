@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SkeletonGame.Input;
 using System.Diagnostics;
-
+using SkeletonGame.EngineClasses;
 namespace SkeletonGame
 {
     public class Game1 : Game
@@ -12,6 +12,7 @@ namespace SkeletonGame
         private SpriteBatch _spriteBatch;
         private KeyboardState keyboardState;
         private InputManager inputManager;
+        private Engine engine;
 
         Texture2D texture2D;
 
@@ -21,6 +22,7 @@ namespace SkeletonGame
             _graphics = new GraphicsDeviceManager(this);
             this.inputManager = new InputManager(keyboardState);
             Content.RootDirectory = "Content";
+            this.engine = new Engine(Content);
             IsMouseVisible = true;
         }
 
@@ -58,8 +60,8 @@ namespace SkeletonGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             _spriteBatch.Begin();
-            
-
+            _spriteBatch.Draw(this.engine.AssetManager().LoadTexture("skeleton_standing"), 
+                new Rectangle(0, 0, _graphics.PreferredBackBufferWidth, _graphics.PreferredBackBufferHeight), Color.White);
             _spriteBatch.End();
 
             // TODO: Add your drawing code here
