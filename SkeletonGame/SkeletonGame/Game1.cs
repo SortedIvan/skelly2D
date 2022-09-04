@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Skeleton_game
+namespace SkeletonGame
 {
     public class Game1 : Game
     {

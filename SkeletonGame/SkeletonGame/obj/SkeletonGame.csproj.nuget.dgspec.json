@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Skeleton-Game\\skeleton-game\\Skeleton-game\\Skeleton-game\\Skeleton-game.csproj": {}
+    "C:\\Skeleton-Game\\skeleton-game\\SkeletonGame\\SkeletonGame\\SkeletonGame.csproj": {}
   },
   "projects": {
-    "C:\\Skeleton-Game\\skeleton-game\\Skeleton-game\\Skeleton-game\\Skeleton-game.csproj": {
+    "C:\\Skeleton-Game\\skeleton-game\\SkeletonGame\\SkeletonGame\\SkeletonGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Skeleton-Game\\skeleton-game\\Skeleton-game\\Skeleton-game\\Skeleton-game.csproj",
-        "projectName": "Skeleton-game",
-        "projectPath": "C:\\Skeleton-Game\\skeleton-game\\Skeleton-game\\Skeleton-game\\Skeleton-game.csproj",
+        "projectUniqueName": "C:\\Skeleton-Game\\skeleton-game\\SkeletonGame\\SkeletonGame\\SkeletonGame.csproj",
+        "projectName": "SkeletonGame",
+        "projectPath": "C:\\Skeleton-Game\\skeleton-game\\SkeletonGame\\SkeletonGame\\SkeletonGame.csproj",
         "packagesPath": "C:\\Users\\ivano\\.nuget\\packages\\",
-        "outputPath": "C:\\Skeleton-Game\\skeleton-game\\Skeleton-game\\Skeleton-game\\obj\\",
+        "outputPath": "C:\\Skeleton-Game\\skeleton-game\\SkeletonGame\\SkeletonGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

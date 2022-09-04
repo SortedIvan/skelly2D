@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Skeleton_game
+namespace SkeletonGame
 {
     public static class Program
     {
