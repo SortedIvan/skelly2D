@@ -17,7 +17,7 @@ namespace SkeletonGame.EngineClasses
             //Asset manager is one of the most important manager classes
             this.assetManager = new Asset(content);
             this.textureFactory = new TextureFactory();
-            this.repository = new Repository(textureFactory, assetManager);
+            this.repository = new Repository(assetManager);
             this.textureLoader = new TextureLoader(this.repository);
         }
 
