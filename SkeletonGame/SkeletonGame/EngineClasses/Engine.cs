@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework.Content;
-using SkeletonGame.Assets;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework.Graphics;
 using SkeletonGame.Factories;
+using SkeletonGame.GameObject.Player;
+using SkeletonGame.Input;
 using SkeletonGame.Repositories;
 
 namespace SkeletonGame.EngineClasses
@@ -8,38 +11,28 @@ namespace SkeletonGame.EngineClasses
     // Main class for holding all of the public instances of helper classes
     public class Engine
     {
-        private Asset assetManager;
-        private Repository repository;
-        private TextureFactory textureFactory;
-        private TextureLoader textureLoader;
-        public Engine(ContentManager content)
+        private Player player;
+        private SpriteBatch spriteBatch;
+        Repository repository;
+
+        public Engine(Repository repository, SpriteBatch spriteBatch)
         {
-            //Asset manager is one of the most important manager classes
-            this.assetManager = new Asset(content);
-            this.textureFactory = new TextureFactory();
-            this.repository = new Repository(assetManager);
-            this.textureLoader = new TextureLoader(this.repository);
+           this.repository = repository;
+           this.spriteBatch = spriteBatch;
+           this.player = new Player(this.repository.GetTexture("skeleton_standing"), new Vector2(300, 300), 300);
         }
 
-        public Asset AssetManager()
+        public void Update()
         {
-            return this.assetManager;
+            TestInputManager.Update();
+            player.Update();
+        }
+        
+
+        public void Draw()
+        {
+            this.spriteBatch.Draw(player.GetSprite(), player.GetPosition(), null, Color.White, 0, player.GetOrigin(), 1, SpriteEffects.None, 1);
         }
 
-        public TextureFactory TextureFactory()
-        {
-            return this.textureFactory;
-        }
-
-        // Main repository class, holding references to all of the repository classes.
-        public Repository Repository()
-        {
-            return this.repository;
-        }
-
-        public TextureLoader TextureLoader()
-        {
-            return this.textureLoader;
-        }
     }
 }

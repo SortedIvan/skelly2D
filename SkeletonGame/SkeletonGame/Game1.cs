@@ -1,44 +1,44 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using SkeletonGame.Input;
-using System.Diagnostics;
 using SkeletonGame.EngineClasses;
+using SkeletonGame.GameObject.Player;
 using SkeletonGame.Repositories;
 
 namespace SkeletonGame
 {
     public class Game1 : Game
     {
+        //_graphics and _spriteBatch for drawing textures;
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+
+        /* 
+         Working on dissasembling the Engine class and repository
+          ->
+         */
+        private Repository repository;
         private Engine engine;
 
-        private TextureRepository textureRepository;
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-
-           
-            this.engine = new Engine(Content); // Main class controlling all of the subclasses
-
-            this.textureRepository = engine.Repository().GetTextureRepository(); // Instance of the texture repo for easier use
-
+            _graphics = new GraphicsDeviceManager(this);
             IsMouseVisible = true;
+            this.repository = new Repository(Content);
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
             base.Initialize();
+            this.engine = new Engine(this.repository, this._spriteBatch); // Main class controlling all of the subclasses
         }
 
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.engine.TextureLoader().LoadAllTextures();
+            repository.LoadAndSaveTexture("skeleton_standing");
 
             // TODO: use this.Content to load your game content here
         }
@@ -47,20 +47,20 @@ namespace SkeletonGame
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
-
             // TODO: Add your update logic here
- 
+            engine.Update();
+
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.Black);
 
             _spriteBatch.Begin();
+            engine.Draw();
 
-            _spriteBatch.Draw(textureRepository.GetTexture("skeleton_standing"), new Vector2(0, 0), Color.White);
-
+            //player.Draw();
             _spriteBatch.End();
 
             // TODO: Add your drawing code here

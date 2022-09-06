@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Skeleton-Game/skeleton-game/SkeletonGame/SkeletonGame/Content/skeleton_walk.png</SourceFile>
-  <SourceTime>2022-06-22T22:51:20.3235946+02:00</SourceTime>
+  <SourceTime>2022-09-05T20:18:56.9051194+02:00</SourceTime>
   <DestFile>C:/Skeleton-Game/skeleton-game/SkeletonGame/SkeletonGame/Content/bin/DesktopGL/Content/skeleton_walk.xnb</DestFile>
-  <DestTime>2022-09-04T17:11:41.4056346+02:00</DestTime>
+  <DestTime>2022-09-05T20:20:24.7494389+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
