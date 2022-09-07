@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using SkeletonGame.Factories;
-using SkeletonGame.GameObject.Player;
+using SkeletonGame.Entities.Player;
 using SkeletonGame.Input;
 using SkeletonGame.Repositories;
 
@@ -11,7 +11,7 @@ namespace SkeletonGame.EngineClasses
     // Main class for holding all of the public instances of helper classes
     public class Engine
     {
-        private Player player;
+        private Player player; // Player currently located in engine, will be moved to a sub-class
         private SpriteBatch spriteBatch;
         Repository repository;
 
@@ -21,6 +21,13 @@ namespace SkeletonGame.EngineClasses
            this.spriteBatch = spriteBatch;
            this.player = new Player(this.repository.GetTexture("skeleton_standing"), new Vector2(300, 300), 300);
         }
+
+        public Player GetPlayer()
+        {
+            return this.player;
+        }
+
+
 
         public void Update()
         {

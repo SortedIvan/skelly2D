@@ -2,7 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using SkeletonGame.Input;
 
-namespace SkeletonGame.GameObject.Player
+namespace SkeletonGame.Entities.Player
 {
     public class Player : GameObject
     {
@@ -13,12 +13,15 @@ namespace SkeletonGame.GameObject.Player
             this.PlayerSpeed = playerSpeed;
         }
 
+        
+
         public void Update()
         {
             if (TestInputManager.Direction != Vector2.Zero)
             {
                 var dir = Vector2.Normalize(TestInputManager.Direction);
                 position += dir * PlayerSpeed * Globals.TotalSeconds;
+                
             }
         }
 

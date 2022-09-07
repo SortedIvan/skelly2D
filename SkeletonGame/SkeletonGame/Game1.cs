@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using SkeletonGame.EngineClasses;
-using SkeletonGame.GameObject.Player;
+using SkeletonGame.Entities.Player;
 using SkeletonGame.Repositories;
+using SkeletonGame.Testing;
 
 namespace SkeletonGame
 {
@@ -15,11 +16,17 @@ namespace SkeletonGame
 
         /* 
          Working on dissasembling the Engine class and repository
+          --- Completed, Repository is loaded before Engine 
+               (to load all of the content and avoid exceptions)
           ->
          */
         private Repository repository;
         private Engine engine;
 
+
+        /* Testing enemies behaviour with Vector2.Lerp to follow the player
+         */
+        private TestEnemies testEnemies;
 
         public Game1()
         {
@@ -31,8 +38,9 @@ namespace SkeletonGame
 
         protected override void Initialize()
         {
-            base.Initialize();
+            base.Initialize(); // Initialize invokes -> LoadContent();
             this.engine = new Engine(this.repository, this._spriteBatch); // Main class controlling all of the subclasses
+            this.testEnemies = new TestEnemies(this.repository, this._spriteBatch, this.engine);
         }
 
         protected override void LoadContent()
@@ -48,7 +56,10 @@ namespace SkeletonGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
             // TODO: Add your update logic here
-            engine.Update();
+            Globals.Update(gameTime); // In order to keep other components in sync
+            engine.Update(); // Updating all of the logic kept within the player's class
+
+            testEnemies.Update(); // Enemies behaviour, possible TO_BE_REMOVED
 
             base.Update(gameTime);
         }
@@ -60,7 +71,8 @@ namespace SkeletonGame
             _spriteBatch.Begin();
             engine.Draw();
 
-            //player.Draw();
+            testEnemies.Draw(); // Drawing out the enemies, to be removed.
+            
             _spriteBatch.End();
 
             // TODO: Add your drawing code here

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace SkeletonGame.GameObject
+namespace SkeletonGame.Entities
 {
     public class GameObject
     {
