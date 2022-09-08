@@ -27,6 +27,11 @@ namespace SkeletonGame.Entities
             return this.position;
         }
 
+        public void SetPosition(Vector2 newPosition)
+        {
+            this.position = newPosition;
+        }
+
         public Vector2 GetOrigin()
         {
             return this.origin;
